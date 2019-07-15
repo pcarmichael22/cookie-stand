@@ -46,43 +46,116 @@
 // totalCookies += cookie/hr
 
 
-var ulEl = document.getElementById('firstAndPike');
 
 
+function figuringCookie(index) {
+    for (var i = 0; i <= times.length; i++) {
+
+        var ulEl = document.getElementById(index.elemID);
+        var salesAvgHour = index.getRandomCookie();
+        var bakeCookies = salesAvgHour * Math.round(index.avgCookie);
+        totalCookies += bakeCookies;
+        locSales[i] = bakeCookies;
+        var liEl = document.createElement('li');
+        liEl.textContent = `${times[i]} : ${locSales[i]} salmon cookies.`;
+        ulEl.appendChild(liEl);
+    }
+    liEl.textContent = `Total: ${totalCookies} cookies.`;
+    ulEl.appendChild(liEl);
+}
 
 var times = ['6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7PM', '8 PM']
 var locSales = [];
 var totalCookies = 0;
 
-
-
 var firstPike = {
-    minCust: 23,
-    maxCust: 65,
-    avgCookie: 6.3,
+        minCust: 23,
+        maxCust: 65,
+        avgCookie: 6.3,
+        elemID: 'firstAndPike',
+
+        getRandomCookie: function(min, max) {
+            min = this.minCust;
+            max = this.maxCust;
+            return Math.round(Math.random() * (max - min + 1) + min);
+        },
+        renderCookie: function() {
+            figuringCookie(this);
+        }
+    }
+    // SEATAC
+
+var seaTac = {
+    minCust: 3,
+    maxCust: 24,
+    avgCookie: 1.2,
+    elemID: 'seaTac',
 
     getRandomCookie: function(min, max) {
         min = this.minCust;
         max = this.maxCust;
         return Math.round(Math.random() * (max - min + 1) + min);
     },
-    figuringCookie: function() {
-        for (var i = 0; i < times.length; i++) {
-
-            var salesAvgHour = this.getRandomCookie(this.minCust, this.maxCust);
-            var bakeCookies = salesAvgHour * Math.round(this.avgCookie);
-            totalCookies += bakeCookies;
-            locSales[i] = bakeCookies;
-
-        }
-        for (i = 0; i < times.length; i++) {
-            // console.log(locSales, totalCookies)
-            console.log(`At ${[i]} you will need to bake ${locSales[i]}`)
-            var liEl = document.createElement('li');
-            liEl.textContent = `At ${times[i]} you will need to bake ${locSales[i]} salmon cookies.`;
-            ulEl.appendChild(liEl);
-        }
+    renderCookie: function() {
+        figuringCookie(this);
     }
 }
 
-firstPike.figuringCookie();
+// SEATTLE CENTER
+
+var seaCent = {
+    minCust: 11,
+    maxCust: 38,
+    avgCookie: 3.7,
+    elemID: 'seaCent',
+
+    getRandomCookie: function(min, max) {
+        min = this.minCust;
+        max = this.maxCust;
+        return Math.round(Math.random() * (max - min + 1) + min);
+    },
+    renderCookie: function() {
+        figuringCookie(this);
+    }
+}
+
+// CAPITOL HILL
+
+var capHill = {
+    minCust: 20,
+    maxCust: 38,
+    avgCookie: 2.3,
+    elemID: 'capHil',
+
+    getRandomCookie: function(min, max) {
+        min = this.minCust;
+        max = this.maxCust;
+        return Math.round(Math.random() * (max - min + 1) + min);
+    },
+    renderCookie: function() {
+        figuringCookie(this);
+    }
+}
+
+// ALKI BEACH
+
+var alkBea = {
+    minCust: 2,
+    maxCust: 16,
+    avgCookie: 4.6,
+    elemID: 'alkBea',
+
+    getRandomCookie: function(min, max) {
+        min = this.minCust;
+        max = this.maxCust;
+        return Math.round(Math.random() * (max - min + 1) + min);
+    },
+    renderCookie: function() {
+        figuringCookie(this);
+    }
+}
+
+var shopNames = [firstPike, seaTac, seaCent, capHill, alkBea];
+for (var i = 0; i < shopNames.length; i++) {
+    shopNames[i].renderCookie();
+}
