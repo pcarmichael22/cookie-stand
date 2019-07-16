@@ -49,11 +49,12 @@
 
 
 function figuringCookie(index) {
+    var totalCookies = 0;
     for (var i = 0; i <= times.length; i++) {
 
         var ulEl = document.getElementById(index.elemID);
         var salesAvgHour = index.getRandomCookie();
-        var bakeCookies = salesAvgHour * Math.round(index.avgCookie);
+        var bakeCookies = salesAvgHour * Math.floor(index.avgCookie);
         totalCookies += bakeCookies;
         locSales[i] = bakeCookies;
         var liEl = document.createElement('li');
@@ -66,7 +67,6 @@ function figuringCookie(index) {
 
 var times = ['6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7PM', '8 PM']
 var locSales = [];
-var totalCookies = 0;
 
 var firstPike = {
         minCust: 23,
@@ -77,7 +77,7 @@ var firstPike = {
         getRandomCookie: function(min, max) {
             min = this.minCust;
             max = this.maxCust;
-            return Math.round(Math.random() * (max - min + 1) + min);
+            return Math.floor(Math.random() * (max - min + 1) + min);
         },
         renderCookie: function() {
             figuringCookie(this);
@@ -94,7 +94,7 @@ var seaTac = {
     getRandomCookie: function(min, max) {
         min = this.minCust;
         max = this.maxCust;
-        return Math.round(Math.random() * (max - min + 1) + min);
+        return Math.floor(Math.random() * (max - min + 1) + min);
     },
     renderCookie: function() {
         figuringCookie(this);
@@ -112,7 +112,7 @@ var seaCent = {
     getRandomCookie: function(min, max) {
         min = this.minCust;
         max = this.maxCust;
-        return Math.round(Math.random() * (max - min + 1) + min);
+        return Math.floor(Math.random() * (max - min + 1) + min);
     },
     renderCookie: function() {
         figuringCookie(this);
@@ -130,7 +130,7 @@ var capHill = {
     getRandomCookie: function(min, max) {
         min = this.minCust;
         max = this.maxCust;
-        return Math.round(Math.random() * (max - min + 1) + min);
+        return Math.floor(Math.random() * (max - min + 1) + min);
     },
     renderCookie: function() {
         figuringCookie(this);
@@ -148,7 +148,7 @@ var alkBea = {
     getRandomCookie: function(min, max) {
         min = this.minCust;
         max = this.maxCust;
-        return Math.round(Math.random() * (max - min + 1) + min);
+        return Math.floor(Math.random() * (max - min + 1) + min);
     },
     renderCookie: function() {
         figuringCookie(this);
