@@ -1,28 +1,4 @@
 'use strict';
-
-// var seaTac = {
-//     minCust: 3,
-//     maxCust: 24,
-//     avgCookie: 1.2
-// }
-
-// var seaCent = {
-//     minCust: 11,
-//     maxCust: 38,
-//     avgCookie: 3.7
-// }
-
-// var capHill = {
-//     minCust: 20,
-//     maxCust: 38,
-//     avgCookie: 2.3
-// }
-
-// var alKi = {
-//     minCust: 2,
-//     maxCust: 16,
-//     avgCookie: 4.6
-// }
 // store data input
 
 // location / Min customer / Max Customer / Avg Cookie/sale
@@ -45,117 +21,57 @@
 
 // totalCookies += cookie/hr
 
+// REWRITE FOR CLASS 7
 
+'use strict';
 
+//ARRAY OF HOURS
 
-function figuringCookie(index) {
-    var totalCookies = 0;
-    for (var i = 0; i <= times.length; i++) {
+// var ulSeaTac = document.getElementById('seaTac');
+// var ulSeaCenter = document.getElementById('seaCent');
+// var ulCapHill = document.getElementById('capHil');
+// var ulAlki = document.getElementById('alkBea');
 
-        var ulEl = document.getElementById(index.elemID);
-        var salesAvgHour = index.getRandomCookie();
-        var bakeCookies = salesAvgHour * Math.floor(index.avgCookie);
-        totalCookies += bakeCookies;
-        locSales[i] = bakeCookies;
-        var liEl = document.createElement('li');
-        liEl.textContent = `${times[i]} : ${locSales[i]} salmon cookies.`;
-        ulEl.appendChild(liEl);
+//OBJECT LITERALS FOR EACH STORE
+
+//INSTANCES
+var table = document.getElementById('table');
+var stores = [];
+stores.push(new Store('First and Pike', 23, 65, 6.3, table));
+stores.push(new Store('SeaTac', 3, 24, 1.2, table));
+stores.push(new Store('Seattle Center', 11, 38, 3.7, table));
+stores.push(new Store('Capitol Hill', 20, 38, 2.3, table));
+stores.push(new Store('Alki', 2, 16, 4.6, table));
+
+for (var i = 0; i < stores.length; i++) {
+    if (i === 0) {
+        stores[i].makeHeader();
     }
-    liEl.textContent = `Total: ${totalCookies} cookies.`;
-    ulEl.appendChild(liEl);
-}
+    stores[i].render();
+};
 
-var times = ['6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7PM', '8 PM']
-var locSales = [];
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
-var firstPike = {
-        minCust: 23,
-        maxCust: 65,
-        avgCookie: 6.3,
-        elemID: 'firstAndPike',
 
-        getRandomCookie: function(min, max) {
-            min = this.minCust;
-            max = this.maxCust;
-            return Math.floor(Math.random() * (max - min + 1) + min);
-        },
-        renderCookie: function() {
-            figuringCookie(this);
-        }
-    }
-    // SEATAC
 
-var seaTac = {
-    minCust: 3,
-    maxCust: 24,
-    avgCookie: 1.2,
-    elemID: 'seaTac',
 
-    getRandomCookie: function(min, max) {
-        min = this.minCust;
-        max = this.maxCust;
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    },
-    renderCookie: function() {
-        figuringCookie(this);
-    }
-}
 
-// SEATTLE CENTER
 
-var seaCent = {
-    minCust: 11,
-    maxCust: 38,
-    avgCookie: 3.7,
-    elemID: 'seaCent',
 
-    getRandomCookie: function(min, max) {
-        min = this.minCust;
-        max = this.maxCust;
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    },
-    renderCookie: function() {
-        figuringCookie(this);
-    }
-}
+//Helper function
+//got this function from MDN - math.random() doc
 
-// CAPITOL HILL
+//MIN CUSTOMERS PER HOUR
+//MAX CUSTOMERS PER HOUR
+//AVG COOKIES SOLD PER CUSTOMER
 
-var capHill = {
-    minCust: 20,
-    maxCust: 38,
-    avgCookie: 2.3,
-    elemID: 'capHil',
-
-    getRandomCookie: function(min, max) {
-        min = this.minCust;
-        max = this.maxCust;
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    },
-    renderCookie: function() {
-        figuringCookie(this);
-    }
-}
-
-// ALKI BEACH
-
-var alkBea = {
-    minCust: 2,
-    maxCust: 16,
-    avgCookie: 4.6,
-    elemID: 'alkBea',
-
-    getRandomCookie: function(min, max) {
-        min = this.minCust;
-        max = this.maxCust;
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    },
-    renderCookie: function() {
-        figuringCookie(this);
-    }
-}
-
-var shopNames = [firstPike, seaTac, seaCent, capHill, alkBea];
-for (var i = 0; i < shopNames.length; i++) {
-    shopNames[i].renderCookie();
-}
+//FOR EACH HOUR:
+//NEED TO MAKE AN ARRAY OF CUSTOMERS EACH HOUR
+//NEED TO MAKE AN RANDOM NUMBER BETWEEN MIN AND MAX
+//NEED TO MAKE AN ARRAY OF COOKIES SOLD EACH HOUR
+//MULTIPLY CUSTOMERS EACH HOUR BY AVERAGE COOKIE SALES
+//RENDER THIS TO THE DOM
+//FIND TOTAL COOKIES
+//RENDER TOTAL TO THE DOM
