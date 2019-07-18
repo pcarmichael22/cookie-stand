@@ -1,41 +1,40 @@
 //CONSTRUCTOR - OBJECT CALLED STORE
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var cookieTotalsPerHour = [];
 
-function Store(storeName, minCustEachHour, maxCustEachHour, avgCookiePerCustomer, table) {
+function Store(storeName, minCustomersEachHour, maxCustomersEachHour, avgCookiePerCustomer) {
     this.storeName = storeName;
-    this.minCustEachHour = minCustEachHour;
-    this.maxCustEachHour = maxCustEachHour;
+    this.minCustomersEachHour = minCustomersEachHour;
+    this.maxCustomersEachHour = maxCustomersEachHour;
     this.avgCookiePerCustomer = avgCookiePerCustomer;
     this.totalCookies = 0;
     this.cookiesEachHour = [];
-    this.customerEachHour = [];
-    this.generateCustEachHour();
+    this.customersEachHour = [];
+    this.generateCustomersEachHour();
     this.generateCookiesBakedEachHour();
-    this.table = table;
-
 }
 
 //PROTOTYPE METHODS
 
-Store.prototype.generateCustEachHour = function() {
+Store.prototype.generateCustomersEachHour = function() {
     for (var i = 0; i < hours.length; i++) {
-        var customerPerHour = randomNumber(this.minCustEachHour, this.maxCustEachHour);
-        this.customerEachHour.push(customerPerHour);
+        var customerPerHour = randomNumber(this.minCustomersEachHour, this.maxCustomersEachHour);
+        this.customersEachHour.push(customerPerHour);
     }
 }
 
 Store.prototype.generateCookiesBakedEachHour = function() {
     for (var i = 0; i < hours.length; i++) {
-        var bakeCookiesPerHour = Math.ceil(this.customerEachHour[i] * this.avgCookiePerCustomer);
+        var bakeCookiesPerHour = Math.ceil(this.customersEachHour[i] * this.avgCookiePerCustomer);
         this.cookiesEachHour.push(bakeCookiesPerHour);
         this.totalCookies += bakeCookiesPerHour;
+        cookieTotalsPerHour.push(this.totalCookies[i]);
     }
 }
 
-
-Store.prototype.render = function() {
+Store.prototype.render = function(table) {
     var trEl = document.createElement('tr');
-    this.table.appendChild(trEl);
+    table.appendChild(trEl);
 
     var tdEl = document.createElement('td');
     tdEl.textContent = this.storeName;
@@ -49,4 +48,6 @@ Store.prototype.render = function() {
     var tdEl = document.createElement('td');
     tdEl.textContent = this.totalCookies;
     trEl.appendChild(tdEl);
+
+    console.log(this.totalCookies);
 }

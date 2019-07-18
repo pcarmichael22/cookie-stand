@@ -37,24 +37,23 @@
 //INSTANCES
 var table = document.getElementById('table');
 var stores = [];
-var totalFooterCookies = [];
-stores.push(new Store('First and Pike', 23, 65, 6.3, table));
-stores.push(new Store('SeaTac', 3, 24, 1.2, table));
-stores.push(new Store('Seattle Center', 11, 38, 3.7, table));
-stores.push(new Store('Capitol Hill', 20, 38, 2.3, table));
-stores.push(new Store('Alki', 2, 16, 4.6, table));
+stores.push(new Store('First and Pike', 23, 65, 6.3));
+stores.push(new Store('SeaTac', 3, 24, 1.2));
+stores.push(new Store('Seattle Center', 11, 38, 3.7));
+stores.push(new Store('Capitol Hill', 20, 38, 2.3));
+stores.push(new Store('Alki', 2, 16, 4.6));
 
-makeHeader();
-callStores();
-makeFooter();
+renderHeader();
+renderStores();
+renderFooter();
 
-function callStores() {
+function renderStores() {
     for (var i = 0; i < stores.length; i++) {
-        stores[i].render();
+        stores[i].render(table);
     };
 }
 
-function makeHeader() {
+function renderHeader() {
     //creating location before the written array values
     var trEl = document.createElement('tr');
     var thEl = document.createElement('th');
@@ -74,8 +73,8 @@ function makeHeader() {
     trEl.appendChild(thEl);
 }
 
-function makeFooter() {
-    createFooterCookieTotals();
+function renderFooter() {
+    var totalFooterCookies = createFooterCookieTotals();
     console.log(totalFooterCookies);
     var trEl = document.createElement('tr');
     var tdEl = document.createElement('td');
@@ -83,29 +82,30 @@ function makeFooter() {
     trEl.appendChild(tdEl);
     table.appendChild(trEl);
 
-    for (var i = 0; i <= hours.length; i++) {
+    for (var i = 0; i < totalFooterCookies.length; i++) {
         var tdEl = document.createElement('td');
         tdEl.textContent = totalFooterCookies[i];
         trEl.appendChild(tdEl);
     }
     console.log(totalFooterCookies)
-
-    tdEl = document.createElement('td');
-    tdEl.textContent = 'Total';
-    trEl.appendChild(tdEl);
 }
 
 function createFooterCookieTotals() {
-    for (var i = 0; i <= hours.length; i++) {
-        var footerCookieTotal = 0;
+    var totalCookiesPerHour = [];
+    console.log(Store.cookiesEachHour);
+    var allStoresTotalCookies = 0;
+    for (var i = 0; i < hours.length; i++) {
+        var hourCookieTotal = 0;
         for (var j = 0; j < stores.length; j++) {
-            footerCookieTotal += stores[j].cookiesEachHour[i]
-                // console.log(footerCookieTotal);
+            hourCookieTotal += stores[j].cookiesEachHour[i]
+            console.log(hourCookieTotal);
         }
-        totalFooterCookies.push(footerCookieTotal)
+        totalCookiesPerHour.push(hourCookieTotal)
+        allStoresTotalCookies += hourCookieTotal;
     }
+    totalCookiesPerHour.push(allStoresTotalCookies);
+    return totalCookiesPerHour;
 }
-
 
 //Event Driven Function
 
@@ -124,21 +124,15 @@ formEl.addEventListener('submit', function(event) {
 
     table.innerHTML = '';
 
-    stores.push(new Store(newStoreName, newMinCustomers, newMaxCustomers, newAverageCookies, table));
+    stores.push(new Store(newStoreName, newMinCustomers, newMaxCustomers, newAverageCookies));
     console.log('made it here');
 
-
-    makeHeader();
-    callStores();
-    makeFooter();
+    renderHeader();
+    renderStores();
+    renderFooter();
 });
 //store the info from the form in variables 
 // take the variables and run through the constructor
-
-
-
-
-
 //Helper Function
 
 function randomNumber(min, max) {
