@@ -138,3 +138,9 @@ formEl.addEventListener('submit', function(event) {
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+function addElement(childElType, childContent, parentEl) {
+    var childEl = document.createElement(childElType);
+    childEl.textContent = childContent;
+    parentEl.appendChild(childEl);
+};
