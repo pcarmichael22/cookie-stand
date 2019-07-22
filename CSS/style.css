@@ -1,0 +1,267 @@
+    html {
+        background: url(../img/petr-sevcovic-qE1jxYXiwOA-unsplash.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        margin-top: 100px;
+    }
+    
+    nav {
+        color: black;
+        background-color: rgb(234, 200, 193);
+        overflow: hidden;
+        margin-bottom: 30px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        width: 960px;
+    }
+    
+    nav li {
+        text-align: center;
+        display: inline-block;
+        font-family: 'Darker Grotesque', sans-serif;
+        font-size: 25px;
+        padding: 15px;
+        transition: .3s;
+        position: sticky;
+    }
+    
+    nav a {
+        text-align: center;
+        display: inline-block;
+        font-family: 'Darker Grotesque', sans-serif;
+        font-size: 25px;
+        padding: 15px;
+        transition: .3s;
+        position: sticky;
+        text-decoration: none;
+        color: black;
+    }
+    
+    nav a:hover {
+        color: white;
+        background-color: darkkhaki;
+    }
+    
+    nav li:hover {
+        color: white;
+        background-color: darkkhaki;
+    }
+    
+    body {
+        width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    header {
+        margin-bottom: 10px;
+        color: white;
+        font-family: 'Rock Salt', cursive;
+        font-size: 55px;
+        display: inline-block;
+        text-shadow: 2px 2px 5px rgb(20, 20, 20);
+    }
+    
+    #locations {
+        color: black;
+        font-size: 25px;
+        width: 275px;
+        float: right;
+        background-color: rgb(234, 200, 193, .8);
+        padding: 15px;
+        font-family: 'Darker Grotesque', sans-serif;
+        margin-left: 680px;
+        margin-top: 50px;
+        position: fixed;
+    }
+    
+    #aboutUs {
+        color: black;
+        font-size: 25px;
+        width: 600px;
+        float: left;
+        background-color: rgb(234, 200, 193, .85);
+        padding: 15px;
+        font-family: 'Darker Grotesque', sans-serif;
+        line-height: 1.3;
+        text-indent: 2em;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+    
+    #salmonHeaderPic {
+        float: left;
+        object-fit: contain;
+        width: 550px;
+        margin-bottom: 20px;
+    }
+    
+    #merchandise {
+        color: black;
+        position: relative;
+        width: 600px;
+        margin-top: 1290px;
+        font-size: 35px;
+        font-family: 'Rock Salt', cursive;
+        background-color: rgb(234, 200, 193, .8);
+        padding: 15px;
+    }
+    
+    #contact {
+        position: relative;
+        width: 600px;
+        margin-top: 30px;
+        font-family: 'Darker Grotesque', sans-serif;
+        background-color: rgb(234, 200, 193, .8);
+        padding: 15px;
+    }
+    
+    #contact h2 {
+        color: black;
+        padding-bottom: 10px;
+        font-size: 35px;
+    }
+    
+    #contact li {
+        font-size: 22px;
+        color: black;
+    }
+    
+    #merchandise p {
+        margin-bottom: 20px;
+    }
+    /* Code from BestCSSbutton */
+    
+    .myButton {
+        float: right;
+        -moz-box-shadow: inset 0px -3px 7px 0px #29bbff;
+        -webkit-box-shadow: inset 0px -3px 7px 0px #29bbff;
+        box-shadow: inset 0px -3px 7px 0px #29bbff;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+        background: -moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+        background: -webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+        background: -o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+        background: -ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+        background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+        filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa', GradientType=0);
+        background-color: #2dabf9;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        border: 1px solid #0b0e07;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 15px;
+        padding: 9px 23px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #263666;
+        margin-right: 40px;
+    }
+    
+    .myButton:hover {
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+        background: -moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+        background: -webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+        background: -o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+        background: -ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+        background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+        filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9', GradientType=0);
+        background-color: #0688fa;
+    }
+    
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
+    
+    #weirdFamily {
+        float: right;
+        font-family: 'Darker Grotesque', sans-serif;
+        font-size: 22px;
+        margin-right: 10px;
+        width: 200px;
+        margin-top: -270px;
+    }
+    
+    #familyPic {
+        object-fit: contain;
+        width: 200px;
+        margin-right: 10px;
+        float: right;
+        margin-top: -160px;
+    }
+    
+    #salmonCookieCutter {
+        float: right;
+        object-fit: contain;
+        width: 250px;
+        margin-right: 15px;
+    }
+    
+    #salesBody {
+        width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+        background-color: rgb(234, 200, 193);
+    }
+    
+    #table {
+        border-collapse: collapse;
+        background-color: white;
+    }
+    
+    #table,
+    th,
+    td {
+        border: 1px solid black;
+        margin-bottom: 60px;
+        width: 100px;
+        text-align: left;
+        text-indent: 3px;
+        font-family: sans-serif;
+    }
+    
+    #table th {
+        height: 30px;
+        background-color: cadetblue;
+    }
+    
+    #salesH1 {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 100;
+        font-size: 50px;
+        margin-left: 15px;
+    }
+    
+    #form {
+        margin-bottom: 30px;
+        margin-left: 15px;
+        font-family: sans-serif;
+        font-size: 22px;
+    }
+    
+    #inputButton {
+        margin-top: 20px;
+        width: 100px;
+        height: 50px;
+        font-family: sans-serif;
+        font-size: 22px;
+        background-color: chocolate;
+        margin-left: 15px;
+        color: white;
+    }
+    
+    #form input {
+        margin-bottom: 15px;
+    }
+    
+    #form img {
+        float: right;
+        margin-top: -300px;
+        margin-right: 300px;
+    }
